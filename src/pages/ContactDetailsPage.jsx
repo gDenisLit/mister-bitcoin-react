@@ -1,5 +1,6 @@
 import { Component } from 'react'
 import { contactService } from '../services/contact.service'
+import { Link } from 'react-router-dom'
 
 export class ContactDetailsPage extends Component {
 
@@ -36,6 +37,7 @@ export class ContactDetailsPage extends Component {
                     <p>{contact.email}</p>
                     <p>{contact.phone}</p>
                 </div>
+                <Link to={`/edit/${contact._id}`}>Edit</Link>
             </section>
         )
     }

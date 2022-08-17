@@ -140,9 +140,10 @@ function sort(arr) {
 
 function getContacts(filterBy = null) { 
     return new Promise((resolve, reject) => {
-        var contactsToReturn = contacts
+        var contactsToReturn =  JSON.parse(localStorage.getItem('contact_db'))
+        if (!contactsToReturn) contactsToReturn = contacts
+        localStorage.setItem('contact_db', JSON.stringify(contactsToReturn))
         if (filterBy && filterBy.term) {
-            console.log('service', filterBy)
             contactsToReturn = filter(filterBy.term)
         }
         resolve(sort(contactsToReturn))
@@ -161,6 +162,7 @@ function deleteContact(id) {
         const index = contacts.findIndex(contact => contact._id === id)
         if (index !== -1) {
             contacts.splice(index, 1)
+            localStorage.setItem('contact_db', JSON.stringify(contacts))
         }
         resolve(contacts)
     })
@@ -171,15 +173,18 @@ function _updateContact(contact) {
         const index = contacts.findIndex(c => contact._id === c._id)
         if (index !== -1) {
             contacts[index] = contact
+            localStorage.setItem('contact_db', JSON.stringify(contacts))
         }
         resolve(contact)
     })
 }
 
 function _addContact(contact) {
+    console.log('adding new', contact)
     return new Promise((resolve, reject) => {
         contact._id = _makeId()
         contacts.push(contact)
+        localStorage.setItem('contact_db', JSON.stringify(contacts))
         resolve(contact)
     })
 }

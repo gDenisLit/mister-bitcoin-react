@@ -6,12 +6,14 @@ import { StatisticPage } from './pages/StatisticPage'
 import { LoginPage } from './pages/LoginPage'
 import { SignupPage } from './pages/SignupPage'
 import { ContactDetailsPage } from './pages/ContactDetailsPage'
+import { ContactEditPage } from './pages/ContactEditPage'
 
 export function Routes() {
     return (
         <Switch>
             <Route path='/contact/:id' component={ContactDetailsPage} />
             <Route path='/contact' component={ContactPage} />
+            <Route path='/edit/:id?' component={ContactEditPage} />
             <Route path='/login' component={LoginPage} />
             <Route path='/signup' component={SignupPage} />
             <Route path='/statistic' component={StatisticPage} />

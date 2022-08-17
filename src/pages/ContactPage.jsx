@@ -2,6 +2,7 @@ import { Component } from 'react'
 import { ContactList } from '../cmps/contact/ContactList'
 import { contactService } from '../services/contact.service'
 import { ContactFilter } from '../cmps/contact/ContactFilter'
+import { Link } from 'react-router-dom'
 
 export class ContactPage extends Component {
 
@@ -32,12 +33,13 @@ export class ContactPage extends Component {
 
         const main = 'contact-page main-layout full'
         const inner = 'contact-page__inner flex-column-center'
-        
+
         return (
             <section className={main}>
                 <div className={inner}>
                     <div className='container'>
                         <h3>Find someone to trade with</h3>
+                        <Link to='/edit'>Add new contact</Link>
                         <ContactFilter onSearch={this.onSearch} />
                         <ContactList contacts={contacts} />
                     </div>
