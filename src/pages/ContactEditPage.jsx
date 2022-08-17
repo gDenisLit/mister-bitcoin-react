@@ -23,7 +23,6 @@ export class ContactEditPage extends Component {
     }
 
     handleChange = ({ target }) => {
-        console.log(target.value)
         const field = target.name
         const value = target.type === 'number' ? (+target.value || '') : target.value
         this.setState(prevState => ({ contact: { ...prevState.contact, [field]: value } }))

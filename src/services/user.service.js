@@ -11,9 +11,17 @@ export const userService = {
   signup,
   getLoggedinUser,
   saveLocalUser,
+  getUsers
 }
 
 _createUsers()
+
+async function getUsers() {
+  var users = await storageService.query(USER_KEY)
+  if (!users) users = _createUsers()
+  localStorage.setItem(USER_KEY, JSON.stringify(users))
+  return users
+}
 
 async function login(userCred) {
   try {
@@ -60,7 +68,7 @@ async function _createUsers() {
         contact.moves = []
         return contact
       })
-    } catch (err) {console.dir(err)}
+    } catch (err) { console.dir(err) }
   }
   localStorage.setItem(USER_KEY, JSON.stringify(users))
   return users

@@ -48,6 +48,12 @@ function getHeaderLinks() {
       title: 'Statistics',
       icon: 'fa-light fa-chart-area'
     },
+    {
+      id: makeId(),
+      path: '/transfer',
+      title: 'Wallet',
+      icon: 'fa-light fa-wallet'
+    },
   ]
 }
 

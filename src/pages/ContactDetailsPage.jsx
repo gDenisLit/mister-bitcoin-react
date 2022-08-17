@@ -21,6 +21,15 @@ export class ContactDetailsPage extends Component {
         } catch (err) { console.log('Failed to find contact') }
 
     }
+
+    onDeleteContact = async () => {
+        try {
+            const contactId = this.state.contact._id
+            await contactService.deleteContact(contactId)
+            this.props.history.push('/contact')
+        } catch(err) {console.log('Failed to delete contact')}
+    }
+
     render() {
         const { contact } = this.state
         if (!contact) return <div>Loading...</div>
@@ -38,6 +47,7 @@ export class ContactDetailsPage extends Component {
                     <p>{contact.phone}</p>
                 </div>
                 <Link to={`/edit/${contact._id}`}>Edit</Link>
+                <button onClick={this.onDeleteContact}>Delete contact</button>
             </section>
         )
     }

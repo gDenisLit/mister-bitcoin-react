@@ -1,9 +1,13 @@
+import { reject } from "lodash"
+import { userService } from "./user.service"
+
 export const contactService = {
     getContacts,
     getContactById,
     deleteContact,
     saveContact,
-    getEmptyContact
+    getEmptyContact,
+    transferFunds,
 }
 
 const contacts = [
@@ -130,6 +134,20 @@ const contacts = [
     }
 ]
 
+async function transferFunds(from, to, amount) {
+    const users = await userService.getUsers()
+    const fromUser = users.find(c => c._id === from)
+    const toUser = users.find(c => c._id === to)
+    if (fromUser && toUser) {
+        console.log(fromUser)
+        console.log(toUser)
+        fromUser.coins -= amount
+        toUser.coins += amount
+        return true
+    } else {
+        return false
+    }
+}
 function sort(arr) {
     return arr.sort((a, b) => {
         if (a.name.toLocaleLowerCase() < b.name.toLocaleLowerCase()) return -1
@@ -138,9 +156,9 @@ function sort(arr) {
     })
 }
 
-function getContacts(filterBy = null) { 
+function getContacts(filterBy = null) {
     return new Promise((resolve, reject) => {
-        var contactsToReturn =  JSON.parse(localStorage.getItem('contact_db'))
+        var contactsToReturn = JSON.parse(localStorage.getItem('contact_db'))
         if (!contactsToReturn) contactsToReturn = contacts
         localStorage.setItem('contact_db', JSON.stringify(contactsToReturn))
         if (filterBy && filterBy.term) {
