@@ -1,0 +1,29 @@
+// SETUP
+@import 'setup/typography';
+@import 'setup/functions';
+@import 'setup/mixins';
+@import 'setup/variables';
+
+// BASE
+@import 'basic/base';
+@import 'basic/helpers';
+@import 'basic/layout';
+
+//Pages
+@import 'pages/contact-page';
+@import 'pages/details';
+@import 'pages/edit';
+@import 'pages/login';
+@import 'pages/home';
+@import 'pages/statistics';
+
+
+// Components
+@import 'cmps/app-header';
+@import 'cmps/app-footer';
+@import 'cmps/back-btn';
+@import 'cmps/contact-list';
+@import 'cmps/contact-preview';
+@import 'cmps/contact-filter';
+@import 'cmps/chart-container';
+@import 'cmps/price-card-list';

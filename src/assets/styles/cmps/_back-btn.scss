@@ -1,0 +1,10 @@
+.back-btn {
+    font-size: rem(18px);
+    border: 1px solid $light-color5;
+    padding: rem(5px) rem(15px);
+    margin-block-end: rem(30px);
+
+    span {
+        margin-inline-start: rem(5px);
+    }
+}

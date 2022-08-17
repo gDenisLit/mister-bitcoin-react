@@ -1,0 +1,11 @@
+.chart-container {
+    background-color: $primary-color;
+    border-radius: rem(10px);
+    padding: rem(20px);
+    margin-inline-end: rem(10px);
+    flex-basis: 70%;
+
+    &.small {
+        width: rem(500px);
+    }
+}

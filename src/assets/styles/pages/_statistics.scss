@@ -1,0 +1,12 @@
+.statistic {
+
+    &__inner {
+
+        .charts-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: rem(20px);
+            padding-bottom: rem(50px);
+        }
+    }
+}

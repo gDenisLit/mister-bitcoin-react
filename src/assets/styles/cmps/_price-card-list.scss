@@ -1,0 +1,14 @@
+.price-card-list {
+    flex-basis: 20%;
+    flex-direction: column;
+    justify-content: space-between;
+    .price-card {
+        border: 1px solid rgba($primary-color, 50%);
+        h3 {
+            font-size: rem(28px);
+        }
+        background-color: $light-color;
+        border-radius: rem(10px);
+        padding: rem(25px) rem(10px);
+    }
+}

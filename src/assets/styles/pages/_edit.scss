@@ -1,0 +1,11 @@
+.edit-item {
+
+    &__inner {
+        padding-top: rem(20px);
+
+        .edit-item-header {
+            font-size: rem(28px);
+            margin-block-end: rem(30px);
+        }
+    }
+}

@@ -1,0 +1,23 @@
+.home {
+
+    &__inner {
+
+        .heading {
+            margin-block-end: rem(30px);
+            
+            h1 {
+                font-size: rem(28px);
+                margin-block-end: rem(20px);
+            }
+
+            a {
+                cursor: pointer;
+            }
+        }
+
+        .container {
+            display: flex;
+            // background-color: blue;
+        }
+    }
+}
